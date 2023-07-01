@@ -1,0 +1,286 @@
+@import './var';
+@import './base';
+@import './mixin';
+
+.header{
+    padding: 0.2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primaryColor;
+    position: absolute;
+    width: 100%;
+    border-radius: 0 0 5px 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    @include media(M){
+        padding: 0.2rem 2rem;
+    }
+
+
+// burger
+    .burger-btn{
+        padding: .02rem;
+        font-size: 1.3rem;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        color: $witeColor;
+
+        @include media(M){
+            display: block;
+        }
+        @include media(L){
+            display: none;
+        }
+        &:focus + .header-nav{
+           display: block; 
+        }
+    }
+// list
+.header-nav{
+    @include media(M){
+        display: none;
+    }
+    @include media(L){
+        display:block ;
+    }
+}
+    .header-list{
+        display: flex;
+         align-items: center;
+         justify-content: center;
+
+
+        @include media(M){
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            flex-direction: column;
+        }
+
+        .header-link{
+            display: block;
+            margin: 0 0.7rem;
+            @include textStyle(1rem , normal, $witeColor);
+            @include media(M){
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    // logo
+
+    .logo-wrapper{
+        display: flex;
+        align-items: center;
+
+
+        .logo-tittle{
+            @include textStyle(1.5rem , bold, $witeColor)
+
+        }
+
+        .logo-img{
+            width:60px ;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+
+// search sec
+
+.search-container{
+    height: 100vh;
+    @include flexible(center,center);
+    flex-direction: column;
+
+    .search-tittle{
+        font-size: 2.1;
+        margin-bottom: .2rem;
+        margin-bottom: 2rem;
+        @include textStyle(2rem, bold, $textColor);
+
+        @include media(M){
+            text-align: center;
+            font-size: 1.7rem;
+            line-height: 3rem;
+         }
+    }
+
+    .search-wrapper{
+        width: 50%;
+        @include flexible(center,center);
+
+         @include media(M){
+            width: 90%;
+            flex-wrap: wrap;
+         }
+     
+        .search-input{
+            width: 100%;
+            margin: 0 0.5rem;
+            padding: .4rem 1rem;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 1px 2px 5px rgba(0,0,.5) ;
+            font-size: 1.1rem;
+
+            &::placeholder{
+                color: #999;
+            }
+        }
+
+        .search-btn{
+            background: $primaryColor;
+            @include textStyle(1rem, normal, $witeColor);
+            padding: .4rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid $textColor;
+
+            @include media(M){
+                margin-top: 1.5rem;
+             }
+
+             &:hover{
+                background: $primaryColor-bold;
+             }
+        }
+    }
+}
+
+
+// course sec
+
+.course-container{
+    @include flexible(center, center);
+    flex-wrap: wrap;
+
+    .course-item{
+        width: 400px;
+        margin: 1rem 1rem;
+        background: $witeColor;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 0.5rem;
+    }
+    .course-info{
+        @include flexible( space-between ,center);
+        margin-top: .5rem;
+
+        .course-tittle{
+            @include textStyle(1.2rem, bold,$textColor)
+        }
+
+        .course-price{
+            @include textStyle(1.2rem, bold,#0ad81b)
+        }
+
+    }
+}
+// contact sec
+.contact-container{
+    @include flexible(space-between,center);
+    flex-wrap: wrap;
+    margin:0 4rem;
+    margin-top: 5rem;
+
+    @include media(M){
+        margin-bottom:0 2rem;
+    }
+
+    .logo-sec{
+        @include flexible(center,center);
+        flex-direction: column;
+        width: 50%;
+
+        @include media(M){
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        &-img{
+            width: 200px;
+            margin-bottom: .5rem;
+
+            @include media(M){
+                width: 140px;
+            }
+        }
+        
+        .logo-title{
+            @include textStyle(1.5rem, normal, $textColor);
+            text-align: center;
+        }
+    }
+
+    .info-sec{
+
+
+        @include media(M){
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .info-item{
+            display: block;
+            margin-bottom: 1rem;
+            padding: 1.5rem 3rem;
+            border-radius: 5px;
+            background: $primaryColor;
+            text-align: center;
+            transition: all 0.3s;
+
+
+            &:hover{
+                background: $primaryColor-bold;
+            }
+
+            &:hover i{
+                transform: rotate(-25deg);
+            }
+
+            i{
+                display: block;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                transition: all 0.3s;
+            }
+
+            .info-text{
+                @include textStyle(1.1rem, bold,$textColor);
+            }
+        }
+    }
+   
+}
+ // footer
+
+    .footer-container{
+        @include flexible(space-between,center);
+        margin: top 3rem;
+        background: $primaryColor;
+        padding: 2rem 4rem;
+        color: $witeColor;
+
+        .text-sec p{
+            margin-bottom: .6rem;
+        }
+
+
+        .list-sec .list-link{
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: .5rem;
+            color: $witeColor;
+
+            &:hover{
+                margin-right: .9rem;
+                transition: all .3s;
+            }
+
+        }
+    }
